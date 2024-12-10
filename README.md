@@ -1,2 +1,2 @@
 # utilities
-Simple web tools for accessibility
+Simple tools for accessibility
