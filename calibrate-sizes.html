@@ -7,6 +7,7 @@
         <title>Calibrate sizes | TPGi</title>
 
         <style>
+            /* Target sizes ruler */
             .circular-border {
                 display: inline-block;
                 margin: 0;
@@ -25,6 +26,19 @@
                 height: 24px;
                 background-color: gray;
             }
+
+            /* Adequate text sizes */
+            .adequate-size-sample {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            #sample-adequate-smallest {
+                font-size: 9px;
+            }
+            #sample-adequate-body {
+                font-size: 13px;
+            }
+
+            /* Contrast thresholds */
             .contrast-threshold-sample {
                 font-family: Arial, Helvetica, sans-serif;
                 color: #949494;
@@ -38,6 +52,8 @@
                 font-weight: normal;
                 font-size: 24px; /* equivalent to 18pt */
             }
+
+            /* User preferences check */
             .tiny {
                 font-size: 9px;
             }
@@ -82,7 +98,7 @@
     <body>
         <h1>Calibrate sizes</h1>
 
-        <p>Browsers measure things in "CSS pixels". The pixels get larger when you zoom your browser or change your display resolution. But <a href="https://github.com/w3c/csswg-drafts/issues/399">screen size measurements vary by browser</a>.</p>
+        <p>Browsers measure things in "CSS pixels". The pixels get larger when you zoom your browser or change your display resolution. (But <a href="https://github.com/w3c/csswg-drafts/issues/399">screen size measurements vary by browser</a>.)</p>
 
         <h2>Screen, browser, viewport</h2>
         
@@ -120,6 +136,15 @@ document.write("<p>offset " + y +"</p>");
         <p>This ruler helps with visual estimation of target size and spacing in a mobile app.</p>
 
         <p class="circular-border">24</p><p class="square">24</p><p class="circular-border">24</p><p class="square">24</p>
+
+        <h2>Minimum font size (CCR.Basic.21)</h2>
+
+        <p>This editable text is for visual comparison with a mobile app.</p>
+
+        <label for="sample-adequate-smallest">Smallest adequate size (9):</label><br>
+        <textarea id="sample-adequate-smallest" class="adequate-size-sample">Text to compare</textarea><br>
+        <label for="sample-adequate-body">Smallest body text (13):</label><br>
+        <textarea id="sample-adequate-body" class="adequate-size-sample">Text to compare</textarea>
 
         <h2>Contrast thresholds (CCR.Basic.16)</h2>
 
