@@ -2,4 +2,4 @@
 
 Simple tools for accessibility.
 
-This is automatically published. See Settings > Pages
+Edits in this microsite are published automatically. See Settings > Pages
