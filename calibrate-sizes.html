@@ -22,16 +22,18 @@
                 width: 24px; height: 24px;
                 background-color: gray;
             }
+            .contrast-threshold-sample {
+                font-family: Arial, Helvetica, sans-serif;
+                color: #949494;
+                background-color: #fff; /* in case a user resets their default background color */
+            }
             #sample-bold {
                 font-weight: bold;
-                font-family: Arial, Helvetica, sans-serif;
                 font-size: 18.6666px; /* equivalent to 14pt */
-                color: #949595;
             }
             #sample-normal-weight {
-                font-family: Arial, Helvetica, sans-serif;
+                font-weight: normal;
                 font-size: 24px; /* equivalent to 18pt */
-                color: #949595;
             }
             .tiny {
                 font-size: 9px;
@@ -84,10 +86,10 @@ document.write("<p>offset " + y +"</p>");
 
         <p>This editable text is for visual comparison with a mobile app.</p>
 
-        <label for="sample-bold">Large bold (14pt)</label><br>
-        <textarea id="sample-bold">Large bold</textarea><br>
-        <label for="sample-bold">Large non-bold (18pt)</label><br>
-        <textarea id="sample-normal-weight">Large non-bold</textarea>
+        <label for="sample-bold">Large bold (14pt):</label><br>
+        <textarea id="sample-bold" class="contrast-threshold-sample">Text to compare</textarea><br>
+        <label for="sample-bold">Large non-bold (18pt):</label><br>
+        <textarea id="sample-normal-weight" class="contrast-threshold-sample">Text to compare</textarea>
 
         <h2>WIP: User preferences check</h2>
 
