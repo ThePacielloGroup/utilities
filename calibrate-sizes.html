@@ -56,7 +56,9 @@
         browserHeight = window.outerHeight,
         viewportWidth = window.innerWidth,
         viewportHeight = window.innerHeight,
-        dpr = window.devicePixelRatio.toFixed(3);
+        dpr = window.devicePixelRatio.toFixed(3),
+        screenOrientation = window.matchMedia("(orientation: portrait)").matches ? "portrait" : "landscape";
+        console.log(screenOrientation);
 
         document.getElementById('screen-width').innerHTML = screenWidth;
         document.getElementById('screen-height').innerHTML = screenHeight;
@@ -65,12 +67,13 @@
         document.getElementById('viewport-width').innerHTML = viewportWidth;
         document.getElementById('viewport-height').innerHTML = viewportHeight;
         document.getElementById('dpr').innerHTML = dpr;
+        document.getElementById('screen-orientation').innerHTML = screenOrientation;
     }
 
     function slowUpdateSizes() {
         requestAnimationFrame(updateSizes); // hedge against jitter
     }
-    
+
     window.addEventListener('load', slowUpdateSizes);
     window.addEventListener('resize', slowUpdateSizes);
     window.addEventListener('orientationchange', slowUpdateSizes);
@@ -79,7 +82,7 @@
     <body>
         <h1>Calibrate sizes</h1>
 
-        <p>Browsers measure everything in "CSS pixels," even the screen size. Zooming your browser is like changing your display resolution.</p>
+        <p>Browsers measure things in "CSS pixels". The pixels get larger when you zoom your browser or change your display resolution. But <a href="https://github.com/w3c/csswg-drafts/issues/399">screen size measurements vary by browser</a>.</p>
 
         <h2>Screen, browser, viewport</h2>
         
@@ -87,6 +90,7 @@
         <p>Browser width <span id="browser-width">...</span>, height <span id="browser-height">...</span></p>
         <p>Viewport width <span id="viewport-width">...</span>, height <span id="viewport-height">...</span></p>
         <p>Device pixel ratio <span id="dpr">...</span></p>
+        <p>Orientation: <span id="screen-orientation">...</span></p>
         </script>
 
         <!--
