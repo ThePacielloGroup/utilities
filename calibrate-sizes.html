@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Calibrate sizes | TPGi</title>
-
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Calibrate sizes | TPGi</title>
 
         <style>
             .circular-border {
@@ -27,7 +28,7 @@
             .contrast-threshold-sample {
                 font-family: Arial, Helvetica, sans-serif;
                 color: #949494;
-                background-color: #fff; /* in case a user resets their default background color */
+                background-color: #fff; /* for users with a different but not forced background color */
             }
             #sample-bold {
                 font-weight: bold;
@@ -44,6 +45,36 @@
                 font-style: italic;
             }
         </style>
+
+        <script>
+    
+    //inspired by https://whatismyviewport.com/
+    function updateSizes() {
+        var screenWidth = window.screen.width,
+        screenHeight = window.screen.height,
+        browserWidth = window.outerWidth,
+        browserHeight = window.outerHeight,
+        viewportWidth = window.innerWidth,
+        viewportHeight = window.innerHeight,
+        dpr = window.devicePixelRatio.toFixed(3);
+
+        document.getElementById('screen-width').innerHTML = screenWidth;
+        document.getElementById('screen-height').innerHTML = screenHeight;
+        document.getElementById('browser-width').innerHTML = browserWidth;
+        document.getElementById('browser-height').innerHTML = browserHeight;
+        document.getElementById('viewport-width').innerHTML = viewportWidth;
+        document.getElementById('viewport-height').innerHTML = viewportHeight;
+        document.getElementById('dpr').innerHTML = dpr;
+    }
+
+    function slowUpdateSizes() {
+        requestAnimationFrame(updateSizes); // hedge against jitter
+    }
+    
+    window.addEventListener('load', slowUpdateSizes);
+    window.addEventListener('resize', slowUpdateSizes);
+    window.addEventListener('orientationchange', slowUpdateSizes);
+        </script>
     </head>
     <body>
         <h1>Calibrate sizes</h1>
@@ -52,11 +83,10 @@
 
         <h2>Screen, browser, viewport</h2>
         
-        <script>
-            document.write("<p>Screen width " + screen.width + ", height " + screen.height + "</p>");
-            document.write("<p>Browser width " + window.outerWidth + ", height " + window.outerHeight + "</p>");
-            document.write("<p>Viewport width " + window.innerWidth + ", height " + window.innerHeight + "</p>");
-            // document.write("<p>" + window.outerWidth+"</p>");
+        <p>Screen width <span id="screen-width">...</span>, height <span id="screen-height">...</span></p>
+        <p>Browser width <span id="browser-width">...</span>, height <span id="browser-height">...</span></p>
+        <p>Viewport width <span id="viewport-width">...</span>, height <span id="viewport-height">...</span></p>
+        <p>Device pixel ratio <span id="dpr">...</span></p>
         </script>
 
         <!--
@@ -115,11 +145,14 @@ document.write("<p>offset " + y +"</p>");
 
         <!-- 
         Brainstorm:
-        Text color
-        Background color
-        Font family
-        Spacing
+        Forced colors
+        Default colors (not forced)
+        Dark mode
+        Font face
         Font size (minimum; enlarge text only)
+        
+        Affects web only:
+        Text spacing
         -->
 
     </body>
