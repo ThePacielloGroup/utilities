@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Calibrate sizes | TPGi</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+            .circular-border {
+                display: inline-block;
+                margin: 0;
+                border: 1px solid black;
+                border-radius: 50%;
+                text-align: center;
+                width: 22px; height: 22px;
+                background-color:yellow;
+              }
+            .square {
+                display: inline-block;
+                margin: 0;
+                text-align: center;
+                width: 24px; height: 24px;
+                background-color: gray;
+            }
+            #sample-bold {
+                font-weight: bold;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 18.6666px; /* equivalent to 14pt */
+                color: #949595;
+            }
+            #sample-normal-weight {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 24px; /* equivalent to 18pt */
+                color: #949595;
+            }
+            .tiny {
+                font-size: 9px;
+            }
+            .italic {
+                font-style: italic;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Calibrate sizes</h1>
+
+        <p>Browsers measure everything in "CSS pixels," even the screen size. Zooming your browser is like changing your display resolution.</p>
+
+        <h2>Screen, browser, viewport</h2>
+        
+        <script>
+            document.write("<p>Screen width " + screen.width + ", height " + screen.height + "</p>");
+            document.write("<p>Browser width " + window.outerWidth + ", height " + window.outerHeight + "</p>");
+            document.write("<p>Viewport width " + window.innerWidth + ", height " + window.innerHeight + "</p>");
+            // document.write("<p>" + window.outerWidth+"</p>");
+        </script>
+
+        <!--
+        <script>
+            // https://stackoverflow.com/a/442474/8453275
+            function getOffset( el ) {
+    var _x = 0;
+    var _y = 0;
+    while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
+        _x += el.offsetLeft - el.scrollLeft;
+        _y += el.offsetTop - el.scrollTop;
+        el = el.offsetParent;
+    }
+    return { top: _y, left: _x };
+}
+var y = getOffset( document.getElementById('h2') ).top; 
+document.write("<p>offset " + y +"</p>");
+
+        </script>
+        -->
+
+        <h2>Minimum pointer targets (CCR.Basic.58)</h2>
+
+        <p>This ruler helps with visual estimation of target size and spacing in a mobile app.</p>
+
+        <p class="circular-border">24</p><p class="square">24</p><p class="circular-border">24</p><p class="square">24</p>
+
+        <h2>Contrast thresholds (CCR.Basic.16)</h2>
+
+        <p>This editable text is for visual comparison with a mobile app.</p>
+
+        <label for="sample-bold">Large bold (14pt)</label><br>
+        <textarea id="sample-bold">Large bold</textarea><br>
+        <label for="sample-bold">Large non-bold (18pt)</label><br>
+        <textarea id="sample-normal-weight">Large non-bold</textarea>
+
+        <h2>User preferences check</h2>
+
+        <table>
+            <tr>
+                <th>Real text</th>
+                <th>Image of text</th>
+            </tr>
+            <tr>
+                <td>
+                    <span class="tiny">tiny</span><br>
+                    <span class="italic">italic</span>
+                </td>
+                <td>
+                    TODO
+                </td>
+            </tr>
+        </table>
+
+        <!-- 
+        Brainstorm:
+        Text color
+        Background color
+        Font family
+        Spacing
+        Font size (minimum; enlarge text only)
+        -->
+
+        <p>Is your browser or OS overriding a page style? User preferences are good, but they can causes surprises when testing.</p>
+
+    </body>
+</html>
