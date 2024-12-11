@@ -52,20 +52,6 @@
                 font-weight: normal;
                 font-size: 24px; /* equivalent to 18pt */
             }
-
-            /* User preferences check */
-            #text-check-current {
-                font-family: Arial, Helvetica, sans-serif;
-            }
-            .text-check-midrange {
-                font-size: 16px;
-            }
-            .text-check-smallish {
-                font-size: 10px;
-            }
-            #text-check-default-image {
-                display: inline-block;
-            }
         </style>
 
         <script>
@@ -160,38 +146,6 @@ document.write("<p>offset " + y +"</p>");
         <textarea id="sample-bold" class="contrast-threshold-sample">Text to compare</textarea><br>
         <label for="sample-bold">Large non-bold (18pt):</label><br>
         <textarea id="sample-normal-weight" class="contrast-threshold-sample">Text to compare</textarea>
-
-        <h2>User preferences check</h2>
-
-        <p>User preferences can cause surprises when testing.</p>
-
-        <p>If the current text differs from the default screenshot by more than a couple of pixels, check your browser and OS settings.</p>
-
-        <table class="text-check">
-            <tr>
-                <th>Current:</th>
-                <td><span id="text-check-current"><span class="text-check-midrange">Midrange</span><span class="text-check-smallish">Smallish</span></span></td>
-            </tr>
-            <tr>
-                <th>Default:</th>
-                <td><img id="text-check-default-image" src="images/text-check-default.png"></td>
-            </tr>
-        </table>
-
-        <!-- 
-        Brainstorm others:
-        Forced colors
-        Default colors (not forced)
-        Dark mode
-
-        Affects the above tests:
-        Font face
-        Font weight
-        Font size (minimum; enlarge text only)
-        
-        Affects web only:
-        Text spacing
-        -->
 
     </body>
 </html>

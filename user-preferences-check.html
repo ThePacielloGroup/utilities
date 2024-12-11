@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>User preferences check | TPGi</title>
+
+        <style>
+            #text-check-current {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .text-check-midrange {
+                font-size: 16px;
+            }
+            .text-check-smallish {
+                font-size: 10px;
+            }
+            #text-check-default-image {
+                display: inline-block;
+            }
+        </style>
+    
+    </head>
+    <body>
+
+        <h1>User preferences check</h1>
+
+        <p>User preferences can cause surprises when testing.</p>
+
+        <p>If the current text differs from the default screenshot by more than a couple of pixels, check your browser and OS settings.</p>
+
+        <table class="text-check">
+            <tr>
+                <th>Current:</th>
+                <td><span id="text-check-current"><span class="text-check-midrange">Midrange</span><span class="text-check-smallish">Smallish</span></span></td>
+            </tr>
+            <tr>
+                <th>Default:</th>
+                <td><img id="text-check-default-image" src="images/text-check-default.png"></td>
+            </tr>
+        </table>
+
+        <!-- 
+        Brainstorm others:
+        Forced colors
+        Default colors (not forced)
+        Dark mode
+
+        Affects the above tests:
+        Font face
+        Font weight
+        Font size (minimum; enlarge text only)
+        
+        Affects web only:
+        Text spacing
+        -->
+
+    </body>
+</html>
